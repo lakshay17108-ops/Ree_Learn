@@ -10,7 +10,8 @@ project.
 2. Keep the build settings from `vercel.json`: dependencies are installed for
    `client` and `server`, the client is built into `client/dist`, and Vercel
    deploys `api/[...path].js` as the `/api/*` function. The SPA rewrite serves
-   the client for frontend routes; API requests are handled by the function.
+   the client for frontend routes while excluding `/api/*`, so API requests
+   reach the function instead of returning the frontend HTML.
 3. Add `DATABASE_URL` for a PostgreSQL database, preferably a pooled/serverless
    connection string. Vercel `/tmp` storage is not persistent.
 4. Add `JWT_SECRET` as a Vercel environment variable. Use a long, random value.
