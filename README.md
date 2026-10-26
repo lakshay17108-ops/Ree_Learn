@@ -8,8 +8,9 @@ project.
 1. Import this repository into Vercel and leave **Root Directory** set to the
    repository root.
 2. Keep the build settings from `vercel.json`: dependencies are installed for
-   `client` and `server`, the client is built into `client/dist`, and
-   `api/[...path].js` routes `/api/*` requests to Express.
+   `client` and `server`, the client is built into `client/dist`, and Vercel
+   deploys `api/[...path].js` as the `/api/*` function. The SPA rewrite serves
+   the client for frontend routes; API requests are handled by the function.
 3. Add `DATABASE_URL` for a PostgreSQL database, preferably a pooled/serverless
    connection string. Vercel `/tmp` storage is not persistent.
 4. Add `JWT_SECRET` as a Vercel environment variable. Use a long, random value.
